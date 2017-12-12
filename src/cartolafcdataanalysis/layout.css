@@ -1,0 +1,210 @@
+/*.titled-pane > .title {
+    -fx-pref-height: 36.0;
+} */
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 0 0 0;
+}
+
+#split_navbar {
+  -fx-background: darkseagreen;
+}
+
+#pn_diaplay_pontos {
+    -fx-background-color: white;
+}
+
+#lstTimes {
+    -fx-background-color: #eeeeee;
+}
+
+#pn_left_spli_2 {
+    -fx-background-color: #eeeeee;
+}
+
+#pn_centro {
+    -fx-background-color: white;
+}
+
+#info0 {
+    -fx-background-color: #eeeeee;
+    -fx-border-style:solid;
+    -fx-border-width: 0px 0px 6px 0px;
+    -fx-border-color: #eeeeee;
+    
+}
+
+
+#info1 {
+    -fx-background-color: #337ab7;
+}
+
+#info2 {
+    -fx-background-color: #5cb85c;
+}
+
+#info3 {
+    -fx-background-color: #f0ad4e;
+}
+
+#info4 {
+    -fx-background-color: #d9534f;
+}
+#txtOrcamento {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+}
+
+#cmbOrcamento, #cmbEsquema, #cmbAlgoritmo, #cmbAno, #cmbLocal {
+    -fx-background-color: transparent;
+    -fx-text-fill: Red;
+    -fx-font-size: 29px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+}
+
+#txtEsquema {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+}
+
+#txtAlgoritmo {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+}
+
+#txtAno {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+}
+
+#lbltitle {
+   -fx-font-size: 35px;
+   -fx-font-family: "Arial Black";
+   -fx-padding: 15,0,0,0;
+   -fx-fill: transparent;
+   -fx-text-fill: white;
+    /*-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );*/
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+   
+}
+
+#pn_diaplay_titulo {
+    -fx-background-color: white;
+}
+
+#lblsubtitulo {
+  -fx-fill: FIREBRICK;
+  -fx-fill: transparent;
+  -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );  
+}
+
+#lblPontos, #lblMediaPontos {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+    
+}
+
+#lblSaldo {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-text-alignment:right;
+    -fx-alignment: right;
+    -fx-font-family: "Arial Black";
+    
+}
+.chart-series-line {    
+    -fx-stroke-width: 2px;
+    -fx-effect: null;
+}
+ 
+
+
+.default-color0.chart-series-line { -fx-stroke: #af0e0e; } 
+.default-color1.chart-series-line { -fx-stroke: #bab827; } 
+
+.default-color0.chart-line-symbol { -fx-background-color: #af0e0e, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #bab827, white; }
+
+
+/* 6 SOBREPOSIÇÕES POSSÍVEIS */
+
+.default-color2.chart-series-line { -fx-stroke: rgba(175,14,14,0.3); } 
+.default-color3.chart-series-line { -fx-stroke: rgba(186,184,39,0.3); } 
+
+.default-color4.chart-series-line { -fx-stroke: rgba(175,14,14,0.4); } 
+.default-color5.chart-series-line { -fx-stroke: rgba(186,184,39,0.4); }
+
+.default-color6.chart-series-line { -fx-stroke: rgba(175,14,14,0.5); } 
+.default-color7.chart-series-line { -fx-stroke: rgba(186,184,39,0.5); }
+
+.default-color8.chart-series-line { -fx-stroke: rgba(175,14,14,0.6); } 
+.default-color9.chart-series-line { -fx-stroke: rgba(186,184,39,0.6); }
+
+.default-color10.chart-series-line { -fx-stroke: rgba(175,14,14,0.7); } 
+.default-color11.chart-series-line { -fx-stroke: rgba(186,184,39,0.7); }
+
+.default-color12.chart-series-line { -fx-stroke: rgba(175,14,14,0.8); } 
+.default-color13.chart-series-line { -fx-stroke: rgba(186,184,39,0.8); }
+
+.default-color14.chart-series-line { -fx-stroke: rgba(175,14,14,0.9); } 
+.default-color15.chart-series-line { -fx-stroke: rgba(186,184,39,0.9); }
+
+
+
+
+
+
+/*  SOBREPOSIÇÕES */
+/*.default-color3.chart-series-line { -fx-stroke: #af0e0e; -fx-stroke: rgba(255,0,0,0.5); } 
+.default-color4.chart-series-line { -fx-stroke: #bab827; -fx-stroke: rgba(255,0,0,0.5); } 
+.default-color5.chart-series-line { -fx-stroke: #1a862c; -fx-stroke: rgba(255,0,0,0.5); } 
+
+.default-color6.chart-series-line { -fx-stroke: #af0e0e; -fx-stroke: rgba(255,0,0,0.4); } 
+.default-color7.chart-series-line { -fx-stroke: #bab827; -fx-stroke: rgba(255,0,0,0.4); } 
+.default-color8.chart-series-line { -fx-stroke: #1a862c; -fx-stroke: rgba(255,0,0,0.4); } 
+
+.default-color9.chart-series-line { -fx-stroke: #af0e0e; -fx-stroke: rgba(255,0,0,0.3); } 
+.default-color10.chart-series-line { -fx-stroke: #bab827; -fx-stroke: rgba(255,0,0,0.3); } 
+.default-color11.chart-series-line { -fx-stroke: #1a862c; -fx-stroke: rgba(255,0,0,0.3); } */
+
+
+/*.default-color4.chart-series-line { -fx-stroke: pink; } 
+.default-color4.chart-series-line { -fx-stroke: pink; } */
+
+
+
+
+/*.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}*/

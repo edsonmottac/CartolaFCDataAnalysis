@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="795.0" prefWidth="1181.0" stylesheets="@layout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cartolafcdataanalysis.CartolaFCDataAnalysisFXMLController">
+   <children>
+      <BorderPane layoutY="7.0" prefHeight="650.0" prefWidth="981.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="487.0" prefWidth="305.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TreeTableView fx:id="tableview" prefHeight="332.0" prefWidth="303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TreeTableColumn fx:id="col1" prefWidth="48.0" text="R" />
+                              <TreeTableColumn fx:id="col2" prefWidth="83.0" text="ID" />
+                              <TreeTableColumn fx:id="col3" prefWidth="73.0" text="POS" />
+                              <TreeTableColumn fx:id="col4" prefWidth="41.0" text="PTS" />
+                              <TreeTableColumn fx:id="col5" prefWidth="47.0" text="C$" />
+                          </columns>
+                        </TreeTableView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane fx:id="pn_left_spli_2" minHeight="0.0" minWidth="0.0" prefHeight="119.0" prefWidth="303.0">
+                     <children>
+                        <ComboBox fx:id="cmbAno" layoutX="2.0" prefHeight="63.0" prefWidth="303.0" />
+                        <CheckBox fx:id="chkChart" layoutX="2.0" layoutY="85.0" mnemonicParsing="false" text="Permitir graficos sobrepostos?">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </CheckBox>
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </left>
+         <bottom>
+            <SplitPane dividerPositions="0.7875383043922369" prefHeight="49.0" prefWidth="981.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="57.0" prefWidth="854.0">
+                     <children>
+                        <ProgressBar fx:id="pb" layoutX="58.0" layoutY="22.0" prefHeight="47.0" prefWidth="929.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="212.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Button fx:id="btStart" layoutX="12.0" mnemonicParsing="false" onAction="#Click_btStart" prefHeight="47.0" prefWidth="250.0" text="Iniciar Simulação" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </bottom>
+         <top>
+            <SplitPane dividerPositions="0.5" prefHeight="81.0" prefWidth="981.0" scaleShape="false" BorderPane.alignment="CENTER_RIGHT">
+              <items>
+                <AnchorPane fx:id="pn_diaplay_titulo" minHeight="0.0" minWidth="0.0" prefHeight="79.0" prefWidth="684.0" scaleShape="false" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Label fx:id="lbltitle" layoutX="22.0" layoutY="16.0" prefHeight="79.0" prefWidth="707.0" text="Cartola FC Data Analysies" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="43.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblsubtitulo" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="173.0" layoutY="58.0" prefHeight="17.0" prefWidth="342.0" text="Projeto da Disciplina Tópicos em Sistemas Distribuídos I 2017" textAlignment="RIGHT" />
+                     </children></AnchorPane>
+                <AnchorPane fx:id="pn_diaplay_pontos" minHeight="0.0" minWidth="0.0" prefHeight="79.0" prefWidth="481.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <Label layoutX="285.0" layoutY="52.0" text="Pontuação média" textAlignment="RIGHT" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="211.0" />
+                        <Label layoutX="521.0" layoutY="57.0" text="Saldo (C$)" textAlignment="RIGHT" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="14.0" />
+                        <Label fx:id="lblMediaPontos" alignment="CENTER_RIGHT" layoutX="228.0" layoutY="12.0" prefHeight="50.0" prefWidth="161.0" style="-fx-text-alignment: right;" text="0,00" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="212.0">
+                           <font>
+                              <Font name="Calibri" size="34.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSaldo" alignment="CENTER_RIGHT" layoutX="310.0" layoutY="15.0" prefHeight="50.0" prefWidth="166.0" text="0,00" textAlignment="RIGHT" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="18.0">
+                           <font>
+                              <Font name="Calibri" size="34.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPontos" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="12.0" prefHeight="50.0" prefWidth="195.0" style="-fx-text-alignment: right;" text="0,00">
+                           <font>
+                              <Font name="Calibri" size="34.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="52.0" text="Pontos cumulativos" textAlignment="RIGHT" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.12217194570135746" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="74.0" prefWidth="874.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <HBox fx:id="info0" layoutX="80.0" layoutY="-20.0" prefHeight="94.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Pane fx:id="info3" prefHeight="75.0" prefWidth="220.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane layoutX="5.0" layoutY="6.0">
+                                             <children>
+                                                <ComboBox fx:id="cmbAlgoritmo" blendMode="OVERLAY" layoutX="-10.0" layoutY="2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="128.0" layoutY="46.0" prefHeight="17.0" prefWidth="78.0" text="Algoritmo" textAlignment="RIGHT" textFill="WHITE" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Pane fx:id="info1" prefHeight="94.0" prefWidth="231.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane layoutX="7.0" layoutY="6.0">
+                                             <children>
+                                                <ComboBox fx:id="cmbOrcamento" blendMode="OVERLAY" nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="216.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="99.0" layoutY="46.0" prefHeight="15.0" prefWidth="103.0" text="Posição na Tabela" textFill="WHITE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="46.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Pane fx:id="info2" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane layoutX="6.0" layoutY="6.0">
+                                             <children>
+                                                <ComboBox fx:id="cmbEsquema" blendMode="OVERLAY" nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="101.0" layoutY="46.0" prefHeight="15.0" prefWidth="103.0" text="Esquema Tático" textAlignment="RIGHT" textFill="WHITE" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Pane fx:id="info4" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <AnchorPane layoutX="6.0" layoutY="6.0">
+                                             <children>
+                                                <ComboBox fx:id="cmbLocal" blendMode="OVERLAY" layoutX="2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="68.0" prefWidth="195.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="61.0" layoutY="46.0" prefHeight="17.0" prefWidth="116.0" text="Local da Partida" textAlignment="RIGHT" textFill="WHITE" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="574.0" prefWidth="874.0">
+                     <children>
+                        <LineChart fx:id="lineChart" layoutX="-43.0" layoutY="14.0" prefHeight="582.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
