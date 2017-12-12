@@ -254,6 +254,7 @@ public class CartolaFCAnalyse {
                 classcontroler.tableview.setRoot(classcontroler.root);
                 classcontroler.tableview.setShowRoot(false);
                 
+                /* Carrega Gráficos */
                 classcontroler.sMediaPontos.getData().add(new XYChart.Data<String,Number>("R" + num_rodada,media_pontos));
                 classcontroler.sMediaTime.getData().add(new XYChart.Data<String,Number>("R" + num_rodada,media_time));
                 
@@ -270,7 +271,10 @@ public class CartolaFCAnalyse {
                               classcontroler.serie_temp_list_media_time.get(classcontroler.count_chart).getData().addAll(classcontroler.sMediaTime.getData());
                           }
                             classcontroler.count_chart+=1;
-                        }                             
+                        } else  {
+                            classcontroler.serie_temp_list_media_pontos.get(classcontroler.count_chart).getData().clear();
+                            classcontroler.serie_temp_list_media_time.get(classcontroler.count_chart).getData().clear();
+                        }                            
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }       
@@ -424,7 +428,6 @@ public class CartolaFCAnalyse {
         classcontroler.lblSaldo.setText(String.valueOf(FL_ORC_INICIAL));   
         classcontroler.lblMediaPontos.setText("0,00");   
         
-        //classcontroler.sSaldo.getData().clear();
         classcontroler.sMediaPontos.getData().clear();
         classcontroler.sMediaTime.getData().clear();
         
