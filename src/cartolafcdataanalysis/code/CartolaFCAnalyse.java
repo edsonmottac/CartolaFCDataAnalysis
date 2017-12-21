@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -148,7 +149,7 @@ public class CartolaFCAnalyse {
                             System.out.println(position.getNum_percentual());
                             System.out.println(position.getNu_jogadores());
                             
-                            VL_ORC_BY_PLAYER =  (((NUM_SALDO_ATUAL * position.getNum_percentual()) / 100) / position.getNu_jogadores() );
+                            VL_ORC_BY_PLAYER =  (((NUM_SALDO_ATUAL * position.getNum_percentual()) / 100) );
                         }
                        
                         for (int num_players=0;num_players <= position.getNu_jogadores()-1;num_players ++) {
@@ -166,26 +167,43 @@ public class CartolaFCAnalyse {
                                         return Float.compare(obj2.getMedia_rodadas(), obj1.getMedia_rodadas());
                                     }
                                 });
+                                
+                                /* Inclui o jogador em PlayerSelected */
+                                PlayerTemp = PlayersByPosition.get(0);
+                                final Integer key_temp=PlayerTemp.getAtleta_id();
+                                PlayerSelected.add(PlayerTemp);
+                                PlayersByPosition.removeIf(p -> p.getAtleta_id().equals(key_temp));
+
 
                              } else { /* Se for algoritmo randomico */
                             
                                   /* Filtra jogadores com o maximo de valor disponível até o limite de VL_ORC_BY_PLAYER  */
                                  final float v  = VL_ORC_BY_PLAYER;
                                  PlayersByPosition  = PlayersByPosition.stream().filter(p -> (p.getPreco_num() <= v )).collect(Collectors.toList());
-                                 
+
                                  /* Ordena por preço. */
-                                 Collections.sort(PlayersByPosition, new Comparator<Players>() {
-                                    public int compare(Players obj1, Players obj2) {
-                                        return Float.compare(obj2.getPreco_num(), obj1.getPreco_num());
-                                    }
-                                });
+//                               Collections.sort(PlayersByPosition, new Comparator<Players>() {
+//                                  public int compare(Players obj1, Players obj2) {
+//                                      return Float.compare(obj2.getPreco_num(), obj1.getPreco_num());
+//                                  }
+//                               });
+
+                                /* Inclui o jogador em PlayerSelected */
+                                 try {
+                                    Random rn = new Random();
+                                    PlayerTemp = PlayersByPosition.get((rn.nextInt((PlayersByPosition.size()-1) - 1 + 1) + 1));
+                                    final Integer key_temp=PlayerTemp.getAtleta_id();
+                                    PlayerSelected.add(PlayerTemp);
+                                    PlayersByPosition.removeIf(p -> p.getAtleta_id().equals(key_temp));
+                                     
+                                 } catch (Exception e) {
+                                     System.err.println("ERRO ALGORITMO ALEATÓRIO " + e.getMessage());
+                                 }
+                                    
+
+
+
                             }
-                             
-                            /* Inclui o jogador em PlayerSelected */
-                            PlayerTemp = PlayersByPosition.get(0);
-                            final Integer key_temp=PlayerTemp.getAtleta_id();
-                            PlayerSelected.add(PlayerTemp);
-                            PlayersByPosition.removeIf(p -> p.getAtleta_id()== key_temp);
                              
                         }
                         PlayerTemp=null;
@@ -324,17 +342,19 @@ public class CartolaFCAnalyse {
                 /* verifcia a posição do clube do jogador corrente */
                 List<Tabela> tabela_posicao_clube = TabelaList.stream().filter(p-> p.getAno().equals(NUM_YEAR.intValue()))
                                                                         .filter(p-> p.getClube_id().equals(player.getClube_id().toString())).collect(Collectors.toList());
-                
-                /* Aplica um fator a média do jogador. */ 
-                if (tabela_posicao_clube.get(0).getPosicao() != null) {
-                     //System.out.println("POSICAO NA TABELA : " + tabela_posicao_clube.get(0).getPosicao());
-                     //System.out.println("MEDIA : " + media);
-                     media = media - ((float) (FATOR_POSICAO * (tabela_posicao_clube.get(0).getPosicao())));
-                     //System.out.println("NOVA MEDIA : " + media);
-                 } else {
-                     //System.out.println("FORA DA TABELA ID = " +  player.getAtleta_id());
+                if (tabela_posicao_clube.size() > 0) {
+                    /* Aplica um fator a média do jogador. */ 
+                    if (tabela_posicao_clube.get(0).getPosicao() != null) {
+                         //System.out.println("POSICAO NA TABELA : " + tabela_posicao_clube.get(0).getPosicao());
+                         //System.out.println("MEDIA : " + media);
+                         media = media + ((float) (FATOR_POSICAO * (tabela_posicao_clube.get(0).getPosicao())));
+                         //System.out.println("NOVA MEDIA : " + media);
+                     } else {
+                         //System.out.println("FORA DA TABELA ID = " +  player.getAtleta_id());
+                    }
+                } else {
+                    System.out.println("FORA DA TABELA ID = " +  player.getAtleta_id());
                 }
-                
                
                 
                 player.setMedia_rodadas(media);                
@@ -380,6 +400,7 @@ public class CartolaFCAnalyse {
                 for(Players pMedia: FiltroPartidas){
                      //System.out.println(pMedia.getAtleta_id());
                      calc = calc + pMedia.getVariacao_num();
+
                 } 
                 media_rodada = (calc / idx);
                 calc=0;
